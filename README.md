@@ -1,8 +1,15 @@
 # Curso de Stata
 
-Professora Raquel Pereira Pontes         
+Professora Raquel Pereira Pontes     
 
-### Abrir dados da PNAD COVID no STATA com o pacote do Datazoom
+Curso ministrado nos dias 15 e 29/05 através da plataforma webconferência (aulas podem ser acessadas no canal https://www.youtube.com/channel/UCqmTj3dhE6yt-sgOZXoJvPQ).
+
+O material completo da aula está disponível no drive: https://1drv.ms/u/s!AkLitU9qZbGuhBrqkcLKGxHfmRE3?e=brepah
+
+
+### Primeiros passos
+
+#### Abrir dados da PNAD COVID no STATA com o pacote do Datazoom
 
 PRIMEIRO: baixar dados do PNAD-COVID no site do IBGE: https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=downloads
 
