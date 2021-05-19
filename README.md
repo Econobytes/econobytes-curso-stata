@@ -1,8 +1,6 @@
-# Curso de Stata
+## Curso de Stata
 
-***************************************************
 Professora Raquel Pereira Pontes         
-***************************************************
 
 ### Abrir dados da PNAD COVID no STATA com o pacote do Datazoom
 
