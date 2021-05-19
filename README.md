@@ -1,4 +1,4 @@
-## Curso de Stata
+# Curso de Stata
 
 Professora Raquel Pereira Pontes         
 
