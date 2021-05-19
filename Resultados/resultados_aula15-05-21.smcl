@@ -1,0 +1,781 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\dofiles\resultados_aula15-05-21.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}15 May 2021, 10:47:28
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. net from http://www.econ.puc-rio.br/datazoom/portugues
+{txt}{.-}
+http://www.econ.puc-rio.br/datazoom/portugues/
+{hilite:DataZoom - Recursos para bases de microdados do IBGE}
+{.-}
+
+Os pacotes disponíveis nesta página contêm dicionários, programas e interface gráfica
+relacionadas a quatro pesquisas domiciliares do IBGE.
+
+Os recursos foram desenvolvidos para a versão acima STATA 12 para Windows. Usuários de STATA
+para Mac podem notar algumas diferenças no aspecto visual da interface gráfica, mas
+os programas devem funcionar normalmente.
+
+Os arquivos de microdados originais não são disponibilizados. A partir do site do
+IBGE (www.ibge.gov.br) é possível realizar o download para as seguintes pesquisas:
+Censo 2010; PNAD 2001 até a mais recente; PME 03/2002 até a mais recente (Nova
+Metodologia); POF 2002-2003, 2008-2009 e 2017-2018.
+
+Os dicionários permitem a conversão dos arquivos de microdados fornecidos pelo IBGE
+em bases de dados no formato Stata. Podem ser utilizados para a extração de dados a
+partir da linha de comando do Stata (via comando 'infile') ou com o auxílio dos
+programas fornecidos.
+
+Os programas, além de auxiliarem na extração dos dados, realizam algumas operações
+frequentemente úteis para o manuseio destes, como compatibilizar dados entre anos
+de uma pesquisa, deflacionar valores monetários, etc. Para facilitar sua utilização,
+cada programa pode ser executado através de uma interface gráfica incluída em seu
+pacote.
+
+Mais informações disponíveis em www.econ.puc-rio.br/datazoom.
+
+PACKAGES you could -{hilite:net describe}-:
+    {net describe datazoom_censo:datazoom_censo}    Extrai e compatibiliza dados do Censos Demográficos de 1970 a 2010.
+    {net describe datazoom_pnad:datazoom_pnad}     Extrai e compatibiliza dados da PNAD desde 1981.
+    {net describe datazoom_pnadcontinua:datazoom_pnadcontinua} Extrai e compatibiliza dados da PNAD Contínua desde 2012
+    {net describe datazoom_pnadcont_anual:datazoom_pnadcont_anual} Extrai e compatibiliza dados da PNAD Contínua anual desde 2012
+    {net describe datazoom_pnad_covid:datazoom_pnad_covid} Extrai e gera bases PNAD Covid 19 desde Maio 2020.
+    {net describe datazoom_pmeantiga:datazoom_pmeantiga} Extrai dados e identifica os painéis da PME de 1991 a 2001.
+    {net describe datazoom_pmenova:datazoom_pmenova}  Extrai dados e identifica os painéis da PME desde 03/2002.
+    {net describe datazoom_pof2017:datazoom_pof2017}  Extrai dados e gera bases personalizadas da POF 2017-18.
+    {net describe datazoom_pof2008:datazoom_pof2008}  Extrai dados e gera bases personalizadas da POF 2008-09.
+    {net describe datazoom_pof2002:datazoom_pof2002}  Extrai dados e gera bases personalizadas da POF 2002-03.
+    {net describe datazoom_pof1995:datazoom_pof1995}  Extrai dados e gera bases personalizadas da POF 1995-96.
+    {net describe datazoom_ecinf:datazoom_ecinf}    Extrai dados da ECINF 1997 e 2003.
+    {net describe datazoom_pns:datazoom_pns}      Extrai dados da PNS 2013 e 2019.
+{.-}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. db datazoom_pnad_covid
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. use "D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\Mestre\pnad_covid_STATA\PNAD_COVID_112020.dta", clear
+
+. edit
+
+. edit ano
+
+. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. help gen
+
+. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen mes = "novembro"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit mes
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a005 escolaridade
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. rename a001b1 dia_nascimento
+{res}
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. describe
+
+{txt}Contains data from {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\Mestre\pnad_covid_STATA\PNAD_COVID_112020.dta
+{txt}  obs:{res}       381,438                          
+{txt} vars:{res}           149                          3 May 2021 23:31
+{txt} size:{res}    74,380,410                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:ano            }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Ano de referência     {p_end}
+{p 0 48}{bind:uf             }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Unidade da Federação {p_end}
+{p 0 48}{bind:capital        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Capital        {p_end}
+{p 0 48}{bind:rm_ride        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Região Metropolitana e Região administrativa Integrada de desenvolvimento{p_end}
+{p 0 48}{bind:v1008          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número de seleção do domicílio     {p_end}
+{p 0 48}{bind:v1012          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Semana no mês {p_end}
+{p 0 48}{bind:v1013          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Mês da pesquisa       {p_end}
+{p 0 48}{bind:v1016          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da entrevista no domicílio    {p_end}
+{p 0 48}{bind:estrato        }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Estrato        {p_end}
+{p 0 48}{bind:upa            }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}UPA    {p_end}
+{p 0 48}{bind:v1022          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Situação do domicílio       {p_end}
+{p 0 48}{bind:v1023          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Tipo de área  {p_end}
+{p 0 48}{bind:v1030          }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Projeção da população      {p_end}
+{p 0 48}{bind:v1031          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Peso do domicílio e das pessoas       {p_end}
+{p 0 48}{bind:v1032          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Peso do domicílio e das pessoas       {p_end}
+{p 0 48}{bind:posest         }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Domínios de projeção        {p_end}
+{p 0 48}{bind:a001           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número de ordem       {p_end}
+{p 0 48}{bind:a001a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Condição no domicílio       {p_end}
+{p 0 48}{bind:dia_nascimento }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}dia de nascimento      {p_end}
+{p 0 48}{bind:a001b2         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Mês de nascimento     {p_end}
+{p 0 48}{bind:a001b3         }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Ano de nascimento      {p_end}
+{p 0 48}{bind:a002           }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Idade do morador       {p_end}
+{p 0 48}{bind:a003           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Sexo   {p_end}
+{p 0 48}{bind:a004           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Cor ou raça   {p_end}
+{p 0 48}{bind:escolaridade   }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Escolaridade   {p_end}
+{p 0 48}{bind:a006           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Frequenta escola       {p_end}
+{p 0 48}{bind:a006a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}A escola / escola ou faculdade que frequenta é pública ou privada?   {p_end}
+{p 0 48}{bind:a006b          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Você está tendo aulas presenciais?   {p_end}
+{p 0 48}{bind:a007           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada foram disponibilizadas atividades escolares para realizar em c{p_end}
+{p 0 48}{bind:a007a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Por que não realizou as atividades disponibilizadas na semana passada?        {p_end}
+{p 0 48}{bind:a008           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, em quantos dias dedicou-se às atividades escolares?        {p_end}
+{p 0 48}{bind:a009           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, quanto tempo por dia gastou fazendo as atividades escolares? {p_end}
+{p 0 48}{bind:b0011          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve febre?  {p_end}
+{p 0 48}{bind:b0012          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve tosse?  {p_end}
+{p 0 48}{bind:b0013          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dor de garganta?        {p_end}
+{p 0 48}{bind:b0014          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dificuldade para respirar?      {p_end}
+{p 0 48}{bind:b0015          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dor de cabeça? {p_end}
+{p 0 48}{bind:b0016          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dor no peito?   {p_end}
+{p 0 48}{bind:b0017          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve nausea? {p_end}
+{p 0 48}{bind:b0018          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve nariz entupido ou escorrendo?   {p_end}
+{p 0 48}{bind:b0019          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve fadiga? {p_end}
+{p 0 48}{bind:b00110         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dor nos olhos?  {p_end}
+{p 0 48}{bind:b00111         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve perda de cheiro ou sabor?       {p_end}
+{p 0 48}{bind:b00112         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve dor muscular?   {p_end}
+{p 0 48}{bind:b00113         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada teve diarreia?       {p_end}
+{p 0 48}{bind:b002           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Por causa disso, foi a algum estabelecimento de saude? {p_end}
+{p 0 48}{bind:b0031          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi ficar em casa      {p_end}
+{p 0 48}{bind:b0032          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi ligar para algum profissional{p_end}
+{p 0 48}{bind:b0033          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada  para recuperar dos sintomas foi comprar e/ou tomar  remédio {p_end}
+{p 0 48}{bind:b0034          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi comprar e/ou tomar remédio po{p_end}
+{p 0 48}{bind:b0035          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi receber visita de algum profi{p_end}
+{p 0 48}{bind:b0036          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi receber visita de profissiona{p_end}
+{p 0 48}{bind:b0037          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Providência tomada para recuperar dos sintomas foi outra      {p_end}
+{p 0 48}{bind:b0041          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi posto de saúde/Unidade básica de saúde /equipe {p_end}
+{p 0 48}{bind:b0042          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi pronto socorro do SUS/UPa     {p_end}
+{p 0 48}{bind:b0043          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi hospital do SUS       {p_end}
+{p 0 48}{bind:b0044          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi ambulatório ou consultório privado ou ligado às{p_end}
+{p 0 48}{bind:b0045          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi pronto socorro privado ou ligado às forças arma{p_end}
+{p 0 48}{bind:b0046          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Local que buscou atendimento foi hospital privado ou ligado às forças armadas   {p_end}
+{p 0 48}{bind:b005           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Ao procurar o hospital, teve que ficar internado por um dia ou mais    {p_end}
+{p 0 48}{bind:b006           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}durante a internação, foisedado, entubado e colocado em respiração artificial co{p_end}
+{p 0 48}{bind:b007           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Tem algum plano de saúde médico, seja particular, de empresa ou de órgão público{p_end}
+{p 0 48}{bind:b008           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}O(A) Sr(a) fez algum teste para saber se estava infectado(a) pelo coronavírus?  {p_end}
+{p 0 48}{bind:b009a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Fez o exame coletado com cotonete na boca e/ou nariz (SWAB)?   {p_end}
+{p 0 48}{bind:b009b          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual o resultado?      {p_end}
+{p 0 48}{bind:b009c          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Fez o exame de coleta de sangue através de furo no dedo? {p_end}
+{p 0 48}{bind:b009d          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual o resultado?      {p_end}
+{p 0 48}{bind:b009e          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Fez o exame de coleta de sangue através da veia da braço?    {p_end}
+{p 0 48}{bind:b009f          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual o resultado? {p_end}
+{p 0 48}{bind:b0101          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de diabetes?  {p_end}
+{p 0 48}{bind:b0102          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de hipertensão?      {p_end}
+{p 0 48}{bind:b0103          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de asma/bronquite/enfisema/doenças respira{p_end}
+{p 0 48}{bind:b0104          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de doenças do coração (infarto, angina, in{p_end}
+{p 0 48}{bind:b0105          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de depressão?        {p_end}
+{p 0 48}{bind:b0106          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum médico já lhe deu o diagnóstico de câncer?   {p_end}
+{p 0 48}{bind:b011           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual foi o resultado do teste?  Na semana passada, devido à pandemia do Coronaví{p_end}
+{p 0 48}{bind:c001           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, por pelo menos uma hora, trabalhou ou fez algum bico?       {p_end}
+{p 0 48}{bind:c002           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, estava temporariamente afastado de algum trabalho?  {p_end}
+{p 0 48}{bind:c003           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual o principal motivo deste afastamento temporário? {p_end}
+{p 0 48}{bind:c004           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Continuou a ser remunerado (mesmo que parcialmente) por esse trabalho  {p_end}
+{p 0 48}{bind:c005           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Há quanto tempo está afastado desse trabalho?        {p_end}
+{p 0 48}{bind:c0051          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res} tempo que estava afastado (de 1 mês a menos de 1 ano)        {p_end}
+{p 0 48}{bind:c0052          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}tempo que estava afastado (de 1 ano a menos de 2 anos)         {p_end}
+{p 0 48}{bind:c0053          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}tempo que estava afastado (de 02 anos a 98 anos)       {p_end}
+{p 0 48}{bind:c006           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Tem mais de um trabalho        {p_end}
+{p 0 48}{bind:c007           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No trabalho (único ou principal) que tinha nessa semana, era: {p_end}
+{p 0 48}{bind:c007a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Esse trabalho era na área:    {p_end}
+{p 0 48}{bind:c007b          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Tem carteria de trabalho assinada ou é funcionário público estatutário?    {p_end}
+{p 0 48}{bind:c007c          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Que tipo de trabalho, cargo ou função você realiza no seu trabalho (único ou pri{p_end}
+{p 0 48}{bind:c007d          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual é a principal atividade do local ou empresa em que você trabalha?       {p_end}
+{p 0 48}{bind:c007e          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, quantos empregados trabalhavam nesse negócio/empresa que ... {p_end}
+{p 0 48}{bind:c007e1         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1 a 5 empregados       {p_end}
+{p 0 48}{bind:c007e2         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}6 a 10 empregados      {p_end}
+{p 0 48}{bind:c007f          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No trabalho (único ou principal) que tinha nesa semana, o(a) Sr(a) estava com o {p_end}
+{p 0 48}{bind:c008           }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Quantas horas, por semana, normalmente trabalhava?     {p_end}
+{p 0 48}{bind:c009           }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Quantas horas, na semana passada, de fato trabalhou?   {p_end}
+{p 0 48}{bind:c009a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, o(a) Sr(a) gostaria de ter trabalhado mais horas do que as de{p_end}
+{p 0 48}{bind:c010           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Quanto recebia (ou retirava) normalmente em todos os seus trabalhos    {p_end}
+{p 0 48}{bind:c0101          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Recebia/retirava normalmente em dinheiro       {p_end}
+{p 0 48}{bind:c01011         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da faixa do rendimento/retirada em dinheiro    {p_end}
+{p 0 48}{bind:c01012         }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Valor em dinheiro      {p_end}
+{p 0 48}{bind:c0102          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Recebia normalmente em produtos e mercadorias  {p_end}
+{p 0 48}{bind:c01021         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da faixa do rendimento/retirada em produtos e mercadorias      {p_end}
+{p 0 48}{bind:c01022         }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Valor em produtos e mercadorias        {p_end}
+{p 0 48}{bind:c0103          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Recebia normalmente somente em benefícios     {p_end}
+{p 0 48}{bind:c0104          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Era não remunerado    {p_end}
+{p 0 48}{bind:c011a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Quanto recebia (ou retirava) normalmente em todos os seus trabalhos    {p_end}
+{p 0 48}{bind:c011a1         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Recebia/retirava normalmente em dinheiro       {p_end}
+{p 0 48}{bind:c011a11        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da faixa do rendimento/retirada em dinheiro    {p_end}
+{p 0 48}{bind:c011a12        }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Valor em dinheiro      {p_end}
+{p 0 48}{bind:c011a2         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Recebia normalmente em produtos e mercadorias  {p_end}
+{p 0 48}{bind:c011a21        }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da faixa do rendimento/retirada em produtos e mercadorias      {p_end}
+{p 0 48}{bind:c011a22        }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Valor em produtos e mercadorias        {p_end}
+{p 0 48}{bind:c012           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na maior parte do tempo, na semana passada, esse trabalho (único ou principal) f{p_end}
+{p 0 48}{bind:c013           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada, o(a) Sr(a) estava em trabalho remoto (home office ou teletrab{p_end}
+{p 0 48}{bind:c014           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}O(a) Sr(a) contribui para o INSS?      {p_end}
+{p 0 48}{bind:c015           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Na semana passada ___ tomou alguma providência efetiva para conseguir trabalho? {p_end}
+{p 0 48}{bind:c016           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual o principal motivo de não ter procurado trabalho na semana passada?      {p_end}
+{p 0 48}{bind:c017a          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Algum outro morador deste domicílio trabalhou de forma remunerada na semana pass{p_end}
+{p 0 48}{bind:d0011          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Rendimento recebido de aposentadoria e pensão por todos os moradores  {p_end}
+{p 0 48}{bind:d0013          }{txt}{bind: long    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0021          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Rendimento de pensão alimentícia, doação ou mesada em dinheiro de pessoa que não{p_end}
+{p 0 48}{bind:d0023          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0031          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Rendimentos de Programa bolsa Família {p_end}
+{p 0 48}{bind:d0033          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0041          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res} No mês de ... (mês de referência), ... recebeu rendimentos de benefício assiste{p_end}
+{p 0 48}{bind:d0043          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0051          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Auxilios emergenciais relacionados ao coronavirus      {p_end}
+{p 0 48}{bind:d0053          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0061          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Seguro desemprego      {p_end}
+{p 0 48}{bind:d0063          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:d0071          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Outros rendimentos, como aluguel, arrendamento, pervidencia privada, bolsa de es{p_end}
+{p 0 48}{bind:d0073          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Somatório dos valores recebidos       {p_end}
+{p 0 48}{bind:e001           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Durante o período da pandemia alguém deste domicílio solicitou algum empréstimo?{p_end}
+{p 0 48}{bind:e0021          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Este empréstimo foi adquirido com banco ou financeira {p_end}
+{p 0 48}{bind:e0022          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Este empréstimo foi adquirido com parente ou amigo    {p_end}
+{p 0 48}{bind:e0023          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Este empréstimo foi adquirido com empregados ou patrão       {p_end}
+{p 0 48}{bind:e0024          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Este empréstimo foi adquirido com outro local ou pessoa       {p_end}
+{p 0 48}{bind:f001           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Este domicílio é:    {p_end}
+{p 0 48}{bind:f0021          }{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Qual foi o valor mensal do aluguel pago, ou que deveria ter sido pago, no mês de{p_end}
+{p 0 48}{bind:f0022          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número da faixa do aluguel pago       {p_end}
+{p 0 48}{bind:f002a1         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No seu domicílio há os seguintes itens básicos de limepeza e proteção: sabão ou {p_end}
+{p 0 48}{bind:f002a2         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No seu domicílio há os seguintes itens básicos de limepeza e proteção: álcool 70{p_end}
+{p 0 48}{bind:f002a3         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No seu domicílio há os seguintes itens básicos de limepeza e proteção: máscaras {p_end}
+{p 0 48}{bind:f002a4         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No seu domicílio há os seguintes itens básicos de limepeza e proteção: luvas des{p_end}
+{p 0 48}{bind:f002a5         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}No seu domicílio há os seguintes itens básicos de limepeza e proteção: água sani{p_end}
+{p 0 48}{bind:f0061          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Quem respondeu ao questionário?       {p_end}
+{p 0 48}{bind:f006           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Número de ordem do morador que prestou as label var{p_end}
+{p 0 48}{bind:mes            }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. summarize
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}ano {c |}{res}    381,438        2020           0       2020       2020
+{txt}{space 10}uf {c |}{res}    381,438    31.60947    10.87646         11         53
+{txt}{space 5}capital {c |}{res}     90,745     30.9214    13.03735         11         53
+{txt}{space 5}rm_ride {c |}{res}    121,419    31.43792    9.530824         13         52
+{txt}{space 7}v1008 {c |}{res}    381,438    7.477763    4.030199          1         14
+{txt}{hline 13}{c +}{hline 57}
+{space 7}v1012 {c |}{res}    381,438    2.499164    1.115526          1          4
+{txt}{space 7}v1013 {c |}{res}    381,438          11           0         11         11
+{txt}{space 7}v1016 {c |}{res}    381,438           7           0          7          7
+{txt}{space 5}estrato {c |}{res}    381,438     3198708     1088053    1110011    5310220
+{txt}{space 9}upa {c |}{res}    381,438    3.16e+08    1.09e+08   1.10e+08   5.30e+08
+{txt}{hline 13}{c +}{hline 57}
+{space 7}v1022 {c |}{res}    381,438    1.236712    .4250647          1          2
+{txt}{space 7}v1023 {c |}{res}    381,438    3.012899    1.304739          1          4
+{txt}{space 7}v1030 {c |}{res}    381,438    796598.3    796667.7       7002    3825714
+{txt}{space 7}v1031 {c |}{res}    381,438    484.1545    446.0818    11.2939   9111.572
+{txt}{space 7}v1032 {c |}{res}    381,438    554.8801    518.1851   10.19141      12787
+{txt}{hline 13}{c +}{hline 57}
+{space 6}posest {c |}{res}    381,438    3180.395    1087.823       1111       5328
+{txt}{space 8}a001 {c |}{res}    381,438    2.296491    1.351753          1         21
+{txt}{space 7}a001a {c |}{res}    381,438     3.35572    2.926923          1         19
+{txt}dia_nascim~o {c |}{res}    381,438    19.75809    20.30035          1         99
+{txt}{space 6}a001b2 {c |}{res}    381,438    11.22777    20.66659          1         99
+{txt}{hline 13}{c +}{hline 57}
+{space 6}a001b3 {c |}{res}    381,438    2393.459    1767.672       1909       9999
+{txt}{space 8}a002 {c |}{res}    381,438    37.07099    21.84989          0        111
+{txt}{space 8}a003 {c |}{res}    381,438    1.521256    .4995486          1          2
+{txt}{space 8}a004 {c |}{res}    381,438    2.582081    1.446559          1          9
+{txt}escolaridade {c |}{res}    381,438    3.650724    1.989815          1          8
+{txt}{hline 13}{c +}{hline 57}
+{space 8}a006 {c |}{res}    127,815    1.379627    .4852959          1          2
+{txt}{space 7}a006a {c |}{res}     79,293    1.216286    .4117144          1          2
+{txt}{space 7}a006b {c |}{res}     79,293    3.103578    .6039929          1          4
+{txt}{space 8}a007 {c |}{res}     77,260    1.273194    .6912152          1          4
+{txt}{space 7}a007a {c |}{res}      1,248    3.378205    1.946248          1          6
+{txt}{hline 13}{c +}{hline 57}
+{space 8}a008 {c |}{res}     66,368    4.357974    1.105174          1          6
+{txt}{space 8}a009 {c |}{res}     66,368    2.627456    .6957468          1          4
+{txt}{space 7}b0011 {c |}{res}    381,438    2.010293    .3676218          1          9
+{txt}{space 7}b0012 {c |}{res}    381,438    2.004897    .3758145          1          9
+{txt}{space 7}b0013 {c |}{res}    381,438    2.007021    .3727689          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b0014 {c |}{res}    381,438    2.014679    .3625275          1          9
+{txt}{space 7}b0015 {c |}{res}    381,438     2.00323     .378834          1          9
+{txt}{space 7}b0016 {c |}{res}    381,438    2.016123    .3624047          1          9
+{txt}{space 7}b0017 {c |}{res}    381,438    2.015533    .3635607          1          9
+{txt}{space 7}b0018 {c |}{res}    381,438    2.004863    .3780025          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b0019 {c |}{res}    381,438    2.011842    .3691231          1          9
+{txt}{space 6}b00110 {c |}{res}    381,438    2.022816     .424115          1          9
+{txt}{space 6}b00111 {c |}{res}    381,438    2.021697    .4226909          1          9
+{txt}{space 6}b00112 {c |}{res}    381,438    2.015444    .4237365          1          9
+{txt}{space 6}b00113 {c |}{res}    381,438    2.021983    .4243321          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 8}b002 {c |}{res}     14,130    1.717339    .4718003          1          9
+{txt}{space 7}b0031 {c |}{res}     10,096    1.283281    .6032615          1          9
+{txt}{space 7}b0032 {c |}{res}     10,096    1.993562    .4539826          1          9
+{txt}{space 7}b0033 {c |}{res}     10,096     1.36975    .5623768          1          9
+{txt}{space 7}b0034 {c |}{res}     10,096    1.916303    .5096665          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b0035 {c |}{res}     10,096    2.004655    .4540044          1          9
+{txt}{space 7}b0036 {c |}{res}     10,096    2.021593    .4344379          1          9
+{txt}{space 7}b0037 {c |}{res}     10,096    2.004853    .4833803          1          9
+{txt}{space 7}b0041 {c |}{res}      4,029    1.590966    .7493644          1          9
+{txt}{space 7}b0042 {c |}{res}      4,029    1.835939    .7350894          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b0043 {c |}{res}      4,029    1.886572    .7479139          1          9
+{txt}{space 7}b0044 {c |}{res}      4,029    1.967238    .7295159          1          9
+{txt}{space 7}b0045 {c |}{res}      4,029    2.009183    .6807504          1          9
+{txt}{space 7}b0046 {c |}{res}      4,029    1.935964    .7006662          1          9
+{txt}{space 8}b005 {c |}{res}      2,099    1.927585    .4136568          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 8}b006 {c |}{res}        198    1.838384    .6484197          1          9
+{txt}{space 8}b007 {c |}{res}    381,438    1.783102    .5123404          1          9
+{txt}{space 8}b008 {c |}{res}    381,438    1.880507    .4418267          1          9
+{txt}{space 7}b009a {c |}{res}     49,870    1.618749    .6349975          1          9
+{txt}{space 7}b009b {c |}{res}     20,056    1.777523    .6124002          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b009c {c |}{res}     49,870    1.560858    .6578067          1          9
+{txt}{space 7}b009d {c |}{res}     23,062    1.816148     .436033          1          9
+{txt}{space 7}b009e {c |}{res}     49,870    1.739583     .620183          1          9
+{txt}{space 7}b009f {c |}{res}     14,184    1.750987    .5379543          1          9
+{txt}{space 7}b0101 {c |}{res}    381,438    1.957949    .4211968          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 7}b0102 {c |}{res}    381,438    1.863464    .5039743          1          9
+{txt}{space 7}b0103 {c |}{res}    381,438    1.966694     .409518          1          9
+{txt}{space 7}b0104 {c |}{res}    381,438    1.988347    .3849683          1          9
+{txt}{space 7}b0105 {c |}{res}    381,438    1.986339     .386364          1          9
+{txt}{space 7}b0106 {c |}{res}    381,438    2.006368    .3645781          1          9
+{txt}{hline 13}{c +}{hline 57}
+{space 8}b011 {c |}{res}    381,438    2.587849    .8391629          1          9
+{txt}{space 8}c001 {c |}{res}    315,144    1.547286    .4977598          1          2
+{txt}{space 8}c002 {c |}{res}    172,474    1.927902    .2586506          1          2
+{txt}{space 8}c003 {c |}{res}     12,435    2.496984    2.213377          1          8
+{txt}{space 8}c004 {c |}{res}      7,289    1.547675    .5145633          1          3
+{txt}{hline 13}{c +}{hline 57}
+{space 8}c005 {c |}{res}      5,881    1.923482    .5373099          1          4
+{txt}{space 7}c0051 {c |}{res}      4,668     6.23886    2.263482          1         11
+{txt}{space 7}c0052 {c |}{res}        122    4.303279    3.485245          0         11
+{txt}{space 7}c0053 {c |}{res}        173    4.317919    3.102432          2         22
+{txt}{space 8}c006 {c |}{res}    150,919    1.943639     .230619          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 8}c007 {c |}{res}    150,919    5.189101    1.785879          1          9
+{txt}{space 7}c007a {c |}{res}     23,177    2.419252    .7233091          1          3
+{txt}{space 7}c007b {c |}{res}     92,108    1.681331    .8626601          1          3
+{txt}{space 7}c007c {c |}{res}    144,522    18.35165    11.39334          1         36
+{txt}{space 7}c007d {c |}{res}    144,522    11.44273    8.135157          1         25
+{txt}{hline 13}{c +}{hline 57}
+{space 7}c007e {c |}{res}      4,398    1.439291    .7396147          1          3
+{txt}{space 6}c007e1 {c |}{res}      3,127    2.341541    1.334041          1          5
+{txt}{space 6}c007e2 {c |}{res}        610    7.791803    1.517581          6         10
+{txt}{space 7}c007f {c |}{res}      1,148    1.670732    .4701523          1          2
+{txt}{space 8}c008 {c |}{res}    145,793    39.69639    10.95867          1        120
+{txt}{hline 13}{c +}{hline 57}
+{space 8}c009 {c |}{res}    145,793    35.66437    14.88009          0        120
+{txt}{space 7}c009a {c |}{res}     43,735    1.490225    .4999102          1          2
+{txt}{space 8}c010 {c |}{res}    145,793           1           0          1          1
+{txt}{space 7}c0101 {c |}{res}    141,385           1           0          1          1
+{txt}{space 6}c01011 {c |}{res}    141,385    4.260572    1.269106          0          9
+{txt}{hline 13}{c +}{hline 57}
+{space 6}c01012 {c |}{res}    141,385    2216.141    2909.921          5     160000
+{txt}{space 7}c0102 {c |}{res}      1,312           2           0          2          2
+{txt}{space 6}c01021 {c |}{res}      1,312    2.528963    1.760422          0          7
+{txt}{space 6}c01022 {c |}{res}      1,312     1054.43    1753.187         20      20000
+{txt}{space 7}c0103 {c |}{res}        101           3           0          3          3
+{txt}{hline 13}{c +}{hline 57}
+{space 7}c0104 {c |}{res}      3,446           4           0          4          4
+{txt}{space 7}c011a {c |}{res}    142,246           1           0          1          1
+{txt}{space 6}c011a1 {c |}{res}    141,445           1           0          1          1
+{txt}{space 5}c011a11 {c |}{res}    141,445    4.081353     1.42909          0          9
+{txt}{space 5}c011a12 {c |}{res}    141,445    2077.897    2899.457          0     280000
+{txt}{hline 13}{c +}{hline 57}
+{space 6}c011a2 {c |}{res}      1,241           2           0          2          2
+{txt}{space 5}c011a21 {c |}{res}      1,241    2.344883     1.76854          0          7
+{txt}{space 5}c011a22 {c |}{res}      1,241    930.8026    1576.894          0      18000
+{txt}{space 8}c012 {c |}{res}    137,647    1.113922    .3177175          1          2
+{txt}{space 8}c013 {c |}{res}     15,681    1.307251     .461369          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 8}c014 {c |}{res}    246,038    1.846894    .3600908          1          2
+{txt}{space 8}c015 {c |}{res}    169,351    1.867919    .3385795          1          2
+{txt}{space 8}c016 {c |}{res}    146,983    4.130995    2.293075          1         10
+{txt}{space 7}c017a {c |}{res}    146,983    1.682092    .4656649          1          2
+{txt}{space 7}d0011 {c |}{res}    381,438    1.655737     .475128          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 7}d0013 {c |}{res}    131,315    2295.779    2465.634        110      50000
+{txt}{space 7}d0021 {c |}{res}    381,438    1.950065    .2178104          1          2
+{txt}{space 7}d0023 {c |}{res}     19,047     575.397    799.0003         20      13000
+{txt}{space 7}d0031 {c |}{res}    381,438    1.903701    .2950009          1          2
+{txt}{space 7}d0033 {c |}{res}     36,732    196.7769    105.6359         41        890
+{txt}{hline 13}{c +}{hline 57}
+{space 7}d0041 {c |}{res}    381,438    1.963839    .1866897          1          2
+{txt}{space 7}d0043 {c |}{res}     13,793    1118.729    291.8353       1045       5200
+{txt}{space 7}d0051 {c |}{res}    381,438    1.515604    .4997571          1          2
+{txt}{space 7}d0053 {c |}{res}    184,767    574.7921     425.716        262       8400
+{txt}{space 7}d0061 {c |}{res}    381,438    1.986352    .1160263          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 7}d0063 {c |}{res}      5,206    1295.144    471.0939       1045       8500
+{txt}{space 7}d0071 {c |}{res}    381,438    1.950262    .2174036          1          2
+{txt}{space 7}d0073 {c |}{res}     18,972    1500.951    2307.958          1      32000
+{txt}{space 8}e001 {c |}{res}    381,438     2.82668    .5522309          1          3
+{txt}{space 7}e0021 {c |}{res}     30,835    1.207167    .4052829          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 7}e0022 {c |}{res}     30,835    1.801168    .3991282          1          2
+{txt}{space 7}e0023 {c |}{res}     30,835    1.986249    .1164559          1          2
+{txt}{space 7}e0024 {c |}{res}     30,835    1.985374    .1200532          1          2
+{txt}{space 8}f001 {c |}{res}    381,438    1.810402    1.371994          1          7
+{txt}{space 7}f0021 {c |}{res}     53,090    715.6142    589.8581         20      10000
+{txt}{hline 13}{c +}{hline 57}
+{space 7}f0022 {c |}{res}     53,090    2.556941    1.172981          0          6
+{txt}{space 6}f002a1 {c |}{res}    381,438    1.003413    .0621544          1          3
+{txt}{space 6}f002a2 {c |}{res}    381,438    1.037325    .1941206          1          3
+{txt}{space 6}f002a3 {c |}{res}    381,438     1.00502    .0734066          1          3
+{txt}{space 6}f002a4 {c |}{res}    381,438    1.635272    .4888556          1          3
+{txt}{hline 13}{c +}{hline 57}
+{space 6}f002a5 {c |}{res}    381,438    1.012744    .1195881          1          3
+{txt}{space 7}f0061 {c |}{res}    381,438     1.06761    .4250134          1          9
+{txt}{space 8}f006 {c |}{res}    361,256    1.638326    1.080441          1         99
+{txt}{space 9}mes {c |}{res}          0
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. sum a006b
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}a006b {c |}{res}     79,293    3.103578    .6039929          1          4
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. sum d0053
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}d0053 {c |}{res}    184,767    574.7921     425.716        262       8400
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. edit d0053
+
+. edit d0053
+
+. sort d0053
+
+. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab a006b 
+
+  {txt}Você está {c |}
+tendo aulas {c |}
+presenciais {c |}
+       ?    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      2,033        2.56        2.56
+{txt}          2 {c |}{res}      4,683        5.91        8.47
+{txt}          3 {c |}{res}     55,615       70.14       78.61
+{txt}          4 {c |}{res}     16,962       21.39      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     79,293      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. edit v1032
+
+. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab a006b [iw = v1032]
+
+  {txt}Você está {c |}
+tendo aulas {c |}
+presenciais {c |}
+       ?    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}  1,162,042        2.51        2.51
+{txt}          2 {c |}{res}  2,621,515        5.66        8.18
+{txt}          3 {c |}{res} 32668462.4       70.59       78.76
+{txt}          4 {c |}{res}  9,828,840       21.24      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res} 46280859.8      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab a007
+
+  {txt}Na semana {c |}
+    passada {c |}
+      foram {c |}
+disponibili {c |}
+      zadas {c |}
+ atividades {c |}
+  escolares {c |}
+       para {c |}
+realizar em {c |}
+          c {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}     66,368       85.90       85.90
+{txt}          2 {c |}{res}      1,248        1.62       87.52
+{txt}          3 {c |}{res}      9,073       11.74       99.26
+{txt}          4 {c |}{res}        571        0.74      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     77,260      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab b0011
+
+  {txt}Na semana {c |}
+    passada {c |}
+teve febre? {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      3,168        0.83        0.83
+{txt}          2 {c |}{res}    377,080       98.86       99.69
+{txt}          3 {c |}{res}        206        0.05       99.74
+{txt}          9 {c |}{res}        984        0.26      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab b008
+
+ {txt}O(A) Sr(a) {c |}
+  fez algum {c |}
+ teste para {c |}
+   saber se {c |}
+     estava {c |}
+infectado(a {c |}
+     ) pelo {c |}
+ coronavíru {c |}
+       s?   {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}     49,870       13.07       13.07
+{txt}          2 {c |}{res}    330,955       86.77       99.84
+{txt}          9 {c |}{res}        613        0.16      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab b0011 b008
+
+ {txt}Na semana {c |} O(A) Sr(a) fez algum teste para
+   passada {c |}   saber se estava infectado(a)
+      teve {c |}       pelo coronavírus?  
+  febre?   {c |}         1          2          9 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}     1,395      1,769          4 {txt}{c |}{res}     3,168 
+{txt}         2 {c |}{res}    48,361    328,463        256 {txt}{c |}{res}   377,080 
+{txt}         3 {c |}{res}        26        174          6 {txt}{c |}{res}       206 
+{txt}         9 {c |}{res}        88        549        347 {txt}{c |}{res}       984 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}    49,870    330,955        613 {txt}{c |}{res}   381,438 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename c013 home_office 
+{res}{txt}
+{com}. label define home_office 1 "sim" 2 "nao"
+{txt}
+{com}. label values home_office home_office
+{txt}
+{com}. tab home_office
+
+  {txt}Na semana {c |}
+   passada, {c |}
+ o(a) Sr(a) {c |}
+  estava em {c |}
+   trabalho {c |}
+     remoto {c |}
+      (home {c |}
+  office ou {c |}
+   teletrab {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        sim {c |}{res}     10,863       69.27       69.27
+{txt}        nao {c |}{res}      4,818       30.73      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     15,681      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a003 sexo
+{res}{txt}
+{com}. label define sexo 1 "homem" 2 "mulher"
+{txt}
+{com}. label values sexo sexo
+{txt}
+{com}. tab sexo
+
+    {txt}Sexo    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+      homem {c |}{res}    182,611       47.87       47.87
+{txt}     mulher {c |}{res}    198,827       52.13      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a004 cor_raca
+{res}{txt}
+{com}. label define cor_raca 1 "branca" 2 "preta" 3 "amarela" 4 "parda" 5 "indígena" 9 "ignorado"
+{txt}
+{com}. label values cor_raca cor_raca
+{txt}
+{com}. tab cor_raca
+
+     {txt}Cor ou {c |}
+    raça    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+     branca {c |}{res}    159,256       41.75       41.75
+{txt}      preta {c |}{res}     31,404        8.23       49.98
+{txt}    amarela {c |}{res}      2,240        0.59       50.57
+{txt}      parda {c |}{res}    186,954       49.01       99.58
+{txt}   indígena {c |}{res}      1,488        0.39       99.97
+{txt}   ignorado {c |}{res}         96        0.03      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office sexo 
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}
+ office ou {c |}        Sexo   
+  teletrab {c |}     homem     mulher {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+       sim {c |}{res}     4,184      6,679 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}     3,797      1,021 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     7,981      7,700 {txt}{c |}{res}    15,681 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office cor_raca
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}
+ office ou {c |}                     Cor ou raça   
+  teletrab {c |}    branca      preta    amarela      parda   indígena {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+       sim {c |}{res}     6,478        767        119      3,463         36 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}     1,708        491         32      2,569         16 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}     8,186      1,258        151      6,032         52 {txt}{c |}{res}    15,681 
+
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}   Cor ou
+ office ou {c |}  raça   
+  teletrab {c |}  ignorado {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+       sim {c |}{res}         0 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}         2 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}         2 {txt}{c |}{res}    15,681 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. graph bar (count), over(home_office) over(cor_raca) over(sexo)
+{res}
+{com}. graph bar (count) if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(home_office) over(cor_raca) over(sexo)
+{res}
+{com}. graph bar (count) if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no Brasil - Nov/2020")
+{res}
+{com}. graph bar (count) if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no Brasil - Nov/2020", size(medsmall))
+{res}
+{com}. graph bar (count) if (cor_raca == 1 | cor_raca == 2 | cor_raca == 4) & (uf==43), over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no RS - Nov/2020", size(medsmall))
+{res}
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) if (cor_raca == 1 | cor_raca == 2 | cor_raca == 4) & (uf==43), over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no RS - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) if (cor_raca == 1 | cor_raca == 2 | cor_raca == 4) & (uf==43), over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no RS - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\dofiles\resultados_aula15-05-21.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}15 May 2021, 11:49:38
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
