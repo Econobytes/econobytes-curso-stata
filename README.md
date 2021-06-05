@@ -4,7 +4,8 @@ Professora Raquel Pereira Pontes
 
 Curso ministrado nos dias 15 e 29/05 através da plataforma webconferência (aulas podem ser acessadas no canal https://www.youtube.com/channel/UCqmTj3dhE6yt-sgOZXoJvPQ).
 
-O material completo da aula está disponível no drive: https://1drv.ms/u/s!AkLitU9qZbGuhBrqkcLKGxHfmRE3?e=brepah
+O material completo da aula, assim como está disponível no drive: https://1drv.ms/u/s!AkLitU9qZbGuhBrqkcLKGxHfmRE3?e=brepah
+
 
 
 ### Primeiros passos
