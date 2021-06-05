@@ -1,0 +1,461 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Resultados\resultadosaula2-29-05.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}29 May 2021, 11:06:08
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. insheet using "https://covid.ourworldindata.org/data/owid-covid-data.csv", clear
+{txt}(59 vars, 91,926 obs)
+
+{com}. 
+{txt}end of do-file
+
+{com}. save "D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Mestre - dados_dta\covid19_mundo29-05-21.dta"
+{txt}file D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Mestre - dados_dta\covid19_mundo29-05-21.dta saved
+
+{com}. tab location
+
+                        {txt}location {c |}      Freq.     Percent        Cum.
+{hline 33}{c +}{hline 35}
+                     Afghanistan {c |}{res}        460        0.50        0.50
+{txt}                          Africa {c |}{res}        471        0.51        1.01
+{txt}                         Albania {c |}{res}        459        0.50        1.51
+{txt}                         Algeria {c |}{res}        459        0.50        2.01
+{txt}                         Andorra {c |}{res}        453        0.49        2.50
+{txt}                          Angola {c |}{res}        435        0.47        2.98
+{txt}                        Anguilla {c |}{res}        103        0.11        3.09
+{txt}             Antigua and Barbuda {c |}{res}        442        0.48        3.57
+{txt}                       Argentina {c |}{res}        514        0.56        4.13
+{txt}                         Armenia {c |}{res}        454        0.49        4.62
+{txt}                           Aruba {c |}{res}         61        0.07        4.69
+{txt}                            Asia {c |}{res}        493        0.54        5.23
+{txt}                       Australia {c |}{res}        489        0.53        5.76
+{txt}                         Austria {c |}{res}        459        0.50        6.26
+{txt}                      Azerbaijan {c |}{res}        454        0.49        6.75
+{txt}                         Bahamas {c |}{res}        439        0.48        7.23
+{txt}                         Bahrain {c |}{res}        460        0.50        7.73
+{txt}                      Bangladesh {c |}{res}        452        0.49        8.22
+{txt}                        Barbados {c |}{res}        438        0.48        8.70
+{txt}                         Belarus {c |}{res}        456        0.50        9.19
+{txt}                         Belgium {c |}{res}        480        0.52        9.72
+{txt}                          Belize {c |}{res}        432        0.47       10.19
+{txt}                           Benin {c |}{res}        439        0.48       10.66
+{txt}                         Bermuda {c |}{res}        135        0.15       10.81
+{txt}                          Bhutan {c |}{res}        449        0.49       11.30
+{txt}                         Bolivia {c |}{res}        444        0.48       11.78
+{txt} Bonaire Sint Eustatius and Saba {c |}{res}          1        0.00       11.78
+{txt}          Bosnia and Herzegovina {c |}{res}        450        0.49       12.27
+{txt}                        Botswana {c |}{res}        425        0.46       12.73
+{txt}                          Brazil {c |}{res}        458        0.50       13.23
+{txt}          British Virgin Islands {c |}{res}          1        0.00       13.23
+{txt}                          Brunei {c |}{res}        446        0.49       13.72
+{txt}                        Bulgaria {c |}{res}        447        0.49       14.20
+{txt}                    Burkina Faso {c |}{res}        445        0.48       14.69
+{txt}                         Burundi {c |}{res}        424        0.46       15.15
+{txt}                        Cambodia {c |}{res}        488        0.53       15.68
+{txt}                        Cameroon {c |}{res}        449        0.49       16.17
+{txt}                          Canada {c |}{res}        489        0.53       16.70
+{txt}                      Cape Verde {c |}{res}        435        0.47       17.17
+{txt}                  Cayman Islands {c |}{res}        154        0.17       17.34
+{txt}        Central African Republic {c |}{res}        440        0.48       17.82
+{txt}                            Chad {c |}{res}        436        0.47       18.30
+{txt}                           Chile {c |}{res}        461        0.50       18.80
+{txt}                           China {c |}{res}        493        0.54       19.33
+{txt}                        Colombia {c |}{res}        449        0.49       19.82
+{txt}                         Comoros {c |}{res}        394        0.43       20.25
+{txt}                           Congo {c |}{res}        440        0.48       20.73
+{txt}                    Cook Islands {c |}{res}          1        0.00       20.73
+{txt}                      Costa Rica {c |}{res}        449        0.49       21.22
+{txt}                   Cote d'Ivoire {c |}{res}        444        0.48       21.70
+{txt}                         Croatia {c |}{res}        459        0.50       22.20
+{txt}                            Cuba {c |}{res}        443        0.48       22.68
+{txt}                         Curacao {c |}{res}         61        0.07       22.75
+{txt}                          Cyprus {c |}{res}        448        0.49       23.24
+{txt}                         Czechia {c |}{res}        454        0.49       23.73
+{txt}    Democratic Republic of Congo {c |}{res}        444        0.48       24.21
+{txt}                         Denmark {c |}{res}        482        0.52       24.74
+{txt}                        Djibouti {c |}{res}        437        0.48       25.21
+{txt}                        Dominica {c |}{res}        433        0.47       25.68
+{txt}              Dominican Republic {c |}{res}        454        0.49       26.18
+{txt}                         Ecuador {c |}{res}        454        0.49       26.67
+{txt}                           Egypt {c |}{res}        470        0.51       27.18
+{txt}                     El Salvador {c |}{res}        436        0.47       27.66
+{txt}               Equatorial Guinea {c |}{res}        440        0.48       28.14
+{txt}                         Eritrea {c |}{res}        434        0.47       28.61
+{txt}                         Estonia {c |}{res}        479        0.52       29.13
+{txt}                        Eswatini {c |}{res}        441        0.48       29.61
+{txt}                        Ethiopia {c |}{res}        442        0.48       30.09
+{txt}                          Europe {c |}{res}        492        0.54       30.62
+{txt}                  European Union {c |}{res}        492        0.54       31.16
+{txt}                  Faeroe Islands {c |}{res}        120        0.13       31.29
+{txt}                Falkland Islands {c |}{res}         67        0.07       31.36
+{txt}                            Fiji {c |}{res}        485        0.53       31.89
+{txt}                         Finland {c |}{res}        486        0.53       32.42
+{txt}                          France {c |}{res}        491        0.53       32.95
+{txt}                French Polynesia {c |}{res}        113        0.12       33.08
+{txt}                           Gabon {c |}{res}        441        0.48       33.56
+{txt}                          Gambia {c |}{res}        438        0.48       34.03
+{txt}                         Georgia {c |}{res}        458        0.50       34.53
+{txt}                         Germany {c |}{res}        488        0.53       35.06
+{txt}                           Ghana {c |}{res}        441        0.48       35.54
+{txt}                       Gibraltar {c |}{res}        139        0.15       35.69
+{txt}                          Greece {c |}{res}        458        0.50       36.19
+{txt}                       Greenland {c |}{res}        122        0.13       36.32
+{txt}                         Grenada {c |}{res}        433        0.47       36.79
+{txt}                       Guatemala {c |}{res}        467        0.51       37.30
+{txt}                        Guernsey {c |}{res}        125        0.14       37.44
+{txt}                          Guinea {c |}{res}        442        0.48       37.92
+{txt}                   Guinea-Bissau {c |}{res}        430        0.47       38.39
+{txt}                          Guyana {c |}{res}        443        0.48       38.87
+{txt}                           Haiti {c |}{res}        435        0.47       39.34
+{txt}                        Honduras {c |}{res}        444        0.48       39.83
+{txt}                       Hong Kong {c |}{res}        492        0.54       40.36
+{txt}                         Hungary {c |}{res}        452        0.49       40.85
+{txt}                         Iceland {c |}{res}        457        0.50       41.35
+{txt}                           India {c |}{res}        485        0.53       41.88
+{txt}                       Indonesia {c |}{res}        453        0.49       42.37
+{txt}                   International {c |}{res}        477        0.52       42.89
+{txt}                            Iran {c |}{res}        465        0.51       43.39
+{txt}                            Iraq {c |}{res}        460        0.50       43.90
+{txt}                         Ireland {c |}{res}        459        0.50       44.39
+{txt}                     Isle of Man {c |}{res}        128        0.14       44.53
+{txt}                          Israel {c |}{res}        464        0.50       45.04
+{txt}                           Italy {c |}{res}        484        0.53       45.56
+{txt}                         Jamaica {c |}{res}        444        0.48       46.05
+{txt}                           Japan {c |}{res}        493        0.54       46.58
+{txt}                          Jersey {c |}{res}         71        0.08       46.66
+{txt}                          Jordan {c |}{res}        452        0.49       47.15
+{txt}                      Kazakhstan {c |}{res}        442        0.48       47.63
+{txt}                           Kenya {c |}{res}        449        0.49       48.12
+{txt}                        Kiribati {c |}{res}         11        0.01       48.13
+{txt}                          Kosovo {c |}{res}        441        0.48       48.61
+{txt}                          Kuwait {c |}{res}        460        0.50       49.11
+{txt}                      Kyrgyzstan {c |}{res}        437        0.48       49.59
+{txt}                            Laos {c |}{res}        431        0.47       50.06
+{txt}                          Latvia {c |}{res}        459        0.50       50.56
+{txt}                         Lebanon {c |}{res}        463        0.50       51.06
+{txt}                         Lesotho {c |}{res}        381        0.41       51.48
+{txt}                         Liberia {c |}{res}        439        0.48       51.95
+{txt}                           Libya {c |}{res}        451        0.49       52.44
+{txt}                   Liechtenstein {c |}{res}        451        0.49       52.93
+{txt}                       Lithuania {c |}{res}        455        0.49       53.43
+{txt}                      Luxembourg {c |}{res}        460        0.50       53.93
+{txt}                           Macao {c |}{res}        110        0.12       54.05
+{txt}                      Madagascar {c |}{res}        435        0.47       54.52
+{txt}                          Malawi {c |}{res}        426        0.46       54.99
+{txt}                        Malaysia {c |}{res}        490        0.53       55.52
+{txt}                        Maldives {c |}{res}        447        0.49       56.01
+{txt}                            Mali {c |}{res}        430        0.47       56.47
+{txt}                           Malta {c |}{res}        478        0.52       56.99
+{txt}                Marshall Islands {c |}{res}        213        0.23       57.23
+{txt}                      Mauritania {c |}{res}        441        0.48       57.71
+{txt}                       Mauritius {c |}{res}        437        0.48       58.18
+{txt}                          Mexico {c |}{res}        514        0.56       58.74
+{txt}            Micronesia (country) {c |}{res}        128        0.14       58.88
+{txt}                         Moldova {c |}{res}        447        0.49       59.37
+{txt}                          Monaco {c |}{res}        455        0.49       59.86
+{txt}                        Mongolia {c |}{res}        445        0.48       60.34
+{txt}                      Montenegro {c |}{res}        438        0.48       60.82
+{txt}                      Montserrat {c |}{res}        103        0.11       60.93
+{txt}                         Morocco {c |}{res}        477        0.52       61.45
+{txt}                      Mozambique {c |}{res}        433        0.47       61.92
+{txt}                         Myanmar {c |}{res}        428        0.47       62.39
+{txt}                         Namibia {c |}{res}        441        0.48       62.87
+{txt}                           Nauru {c |}{res}         41        0.04       62.91
+{txt}                           Nepal {c |}{res}        490        0.53       63.45
+{txt}                     Netherlands {c |}{res}        457        0.50       63.94
+{txt}                   New Caledonia {c |}{res}        113        0.12       64.07
+{txt}                     New Zealand {c |}{res}        456        0.50       64.56
+{txt}                       Nicaragua {c |}{res}        436        0.47       65.04
+{txt}                           Niger {c |}{res}        435        0.47       65.51
+{txt}                         Nigeria {c |}{res}        456        0.50       66.01
+{txt}                   North America {c |}{res}        493        0.54       66.54
+{txt}                 North Macedonia {c |}{res}        458        0.50       67.04
+{txt}                 Northern Cyprus {c |}{res}        134        0.15       67.19
+{txt}                          Norway {c |}{res}        459        0.50       67.68
+{txt}                         Oceania {c |}{res}        490        0.53       68.22
+{txt}                            Oman {c |}{res}        460        0.50       68.72
+{txt}                        Pakistan {c |}{res}        459        0.50       69.22
+{txt}                       Palestine {c |}{res}        450        0.49       69.71
+{txt}                          Panama {c |}{res}        446        0.49       70.19
+{txt}                Papua New Guinea {c |}{res}        435        0.47       70.67
+{txt}                        Paraguay {c |}{res}        448        0.49       71.15
+{txt}                            Peru {c |}{res}        509        0.55       71.71
+{txt}                     Philippines {c |}{res}        485        0.53       72.23
+{txt}                        Pitcairn {c |}{res}          2        0.00       72.24
+{txt}                          Poland {c |}{res}        451        0.49       72.73
+{txt}                        Portugal {c |}{res}        458        0.50       73.23
+{txt}                           Qatar {c |}{res}        455        0.49       73.72
+{txt}                         Romania {c |}{res}        458        0.50       74.22
+{txt}                          Russia {c |}{res}        484        0.53       74.74
+{txt}                          Rwanda {c |}{res}        441        0.48       75.22
+{txt}                    Saint Helena {c |}{res}         92        0.10       75.32
+{txt}           Saint Kitts and Nevis {c |}{res}        430        0.47       75.79
+{txt}                     Saint Lucia {c |}{res}        441        0.48       76.27
+{txt}Saint Vincent and the Grenadines {c |}{res}        441        0.48       76.75
+{txt}                           Samoa {c |}{res}        192        0.21       76.96
+{txt}                      San Marino {c |}{res}        457        0.50       77.46
+{txt}           Sao Tome and Principe {c |}{res}        418        0.45       77.91
+{txt}                    Saudi Arabia {c |}{res}        453        0.49       78.41
+{txt}                         Senegal {c |}{res}        456        0.50       78.90
+{txt}                          Serbia {c |}{res}        458        0.50       79.40
+{txt}                      Seychelles {c |}{res}        441        0.48       79.88
+{txt}                    Sierra Leone {c |}{res}        424        0.46       80.34
+{txt}                       Singapore {c |}{res}        492        0.54       80.88
+{txt}       Sint Maarten (Dutch part) {c |}{res}         15        0.02       80.89
+{txt}                        Slovakia {c |}{res}        449        0.49       81.38
+{txt}                        Slovenia {c |}{res}        482        0.52       81.91
+{txt}                 Solomon Islands {c |}{res}        229        0.25       82.15
+{txt}                         Somalia {c |}{res}        439        0.48       82.63
+{txt}                    South Africa {c |}{res}        477        0.52       83.15
+{txt}                   South America {c |}{res}        462        0.50       83.65
+{txt}                     South Korea {c |}{res}        494        0.54       84.19
+{txt}                     South Sudan {c |}{res}        419        0.46       84.65
+{txt}                           Spain {c |}{res}        483        0.53       85.17
+{txt}                       Sri Lanka {c |}{res}        488        0.53       85.70
+{txt}                           Sudan {c |}{res}        443        0.48       86.18
+{txt}                        Suriname {c |}{res}        441        0.48       86.66
+{txt}                          Sweden {c |}{res}        483        0.53       87.19
+{txt}                     Switzerland {c |}{res}        459        0.50       87.69
+{txt}                           Syria {c |}{res}        433        0.47       88.16
+{txt}                          Taiwan {c |}{res}        499        0.54       88.70
+{txt}                      Tajikistan {c |}{res}        394        0.43       89.13
+{txt}                        Tanzania {c |}{res}        439        0.48       89.61
+{txt}                        Thailand {c |}{res}        511        0.56       90.16
+{txt}                           Timor {c |}{res}        433        0.47       90.64
+{txt}                            Togo {c |}{res}        451        0.49       91.13
+{txt}                           Tonga {c |}{res}         36        0.04       91.17
+{txt}             Trinidad and Tobago {c |}{res}        441        0.48       91.65
+{txt}                         Tunisia {c |}{res}        451        0.49       92.14
+{txt}                          Turkey {c |}{res}        444        0.48       92.62
+{txt}                    Turkmenistan {c |}{res}          1        0.00       92.62
+{txt}        Turks and Caicos Islands {c |}{res}        127        0.14       92.76
+{txt}                          Tuvalu {c |}{res}          1        0.00       92.76
+{txt}                          Uganda {c |}{res}        434        0.47       93.23
+{txt}                         Ukraine {c |}{res}        452        0.49       93.72
+{txt}            United Arab Emirates {c |}{res}        486        0.53       94.25
+{txt}                  United Kingdom {c |}{res}        484        0.53       94.78
+{txt}                   United States {c |}{res}        493        0.54       95.31
+{txt}                         Uruguay {c |}{res}        442        0.48       95.80
+{txt}                      Uzbekistan {c |}{res}        440        0.48       96.27
+{txt}                         Vanuatu {c |}{res}        200        0.22       96.49
+{txt}                         Vatican {c |}{res}        449        0.49       96.98
+{txt}                       Venezuela {c |}{res}        441        0.48       97.46
+{txt}                         Vietnam {c |}{res}        492        0.54       98.00
+{txt}               Wallis and Futuna {c |}{res}         64        0.07       98.06
+{txt}                           World {c |}{res}        493        0.54       98.60
+{txt}                           Yemen {c |}{res}        414        0.45       99.05
+{txt}                          Zambia {c |}{res}        437        0.48       99.53
+{txt}                        Zimbabwe {c |}{res}        435        0.47      100.00
+{txt}{hline 33}{c +}{hline 35}
+                           Total {c |}{res}     91,926      100.00
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit date
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ano = substr(date,1,4)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen mes = substr(date,6,2) 
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen dia = substr(date,9,2)
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. destring ano mes dia, replace
+{txt}ano has all characters numeric; {res}replaced {txt}as {res}int
+{txt}mes has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}dia has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen data = mdy(mes,dia,ano)
+{txt}
+{com}. format data %tdDD-Mon-yyyy
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. encode location, gen(país)   
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtset país data 
+{res}{txt}{col 8}panel variable:  {res}país (unbalanced)
+{txt}{col 9}time variable:  {res}{col 25}data, 01-Jan-2020 to 28-May-2121, but with gaps
+{txt}{col 17}delta:  {res}1 day
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. xtline total_cases_per_million
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. xtline total_cases_per_million, overlay
+{res}
+{com}. xtline total_cases_per_million if if location ==  "Brazil", overlay
+{err}if not found
+{txt}{search r(111):r(111);}
+
+{com}. xtline total_cases_per_million if location ==  "Brazil", overlay
+{res}
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline total_cases_per_million if (location ==  "Brazil") | (location =="United States") | (location == "India") , overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline total_deaths_per_million if (location ==  "Brazil") | (location =="United States") | (location == "India") , overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline total_vaccinations_per_hundred if (location ==  "Brazil") | (location =="United States") | (location == "India") , overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tssmooth ma new_cases_ma3  = new_cases , w(2 1 0) 
+{txt}The smoother applied was
+{res}{p 5 5 5} by país : (1/3)*[x(t-2) + x(t-1) + 1*x(t)]; x(t)= new_cases {p_end}
+{txt}
+{com}. tssmooth ma new_deaths_ma3 = new_deaths, w(2 1 0)
+{txt}The smoother applied was
+{res}{p 5 5 5} by país : (1/3)*[x(t-2) + x(t-1) + 1*x(t)]; x(t)= new_deaths{p_end}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_cases_ma3 if location ==  "Brazil", overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_cases_ma3 if (location ==  "Brazil") | (location =="United States") | (location == "India"), overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_deaths_ma3 if location ==  "Brazil", overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_cases_ma3 if location ==  "Brazil", overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_deaths_ma3 if (location ==  "Brazil") | (location =="United States") | (location == "India"), overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tssmooth ma new_cases_ma7  = new_cases , w(6 1 0) 
+{txt}The smoother applied was
+{res}{p 5 5 5} by país : (1/7)*[x(t-6) + x(t-5) + x(t-4) + x(t-3) + x(t-2) + x(t-1) + 1*x(t)]; x(t)= new_cases {p_end}
+{txt}
+{com}. tssmooth ma new_deaths_ma7 = new_deaths, w(6 1 0)
+{txt}The smoother applied was
+{res}{p 5 5 5} by país : (1/7)*[x(t-6) + x(t-5) + x(t-4) + x(t-3) + x(t-2) + x(t-1) + 1*x(t)]; x(t)= new_deaths{p_end}
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_cases_ma7 if location ==  "Brazil", overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_cases_ma7 if (location ==  "Brazil") | (location =="United States") | (location == "India"), overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_deaths_ma7 if location ==  "Brazil", overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_deaths_ma7 if (location ==  "Brazil") | (location =="United States") | (location == "India"), overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. xtline new_deaths_ma7 if (location ==  "Brazil") | (location =="United States") | (location == "India"), overlay
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. graph save Graph "D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Resultados\médias de suavização de 7 dias de novas mortes.gph"
+{res}{txt}(file D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Resultados\médias de suavização de 7 dias de novas mortes.gph saved)
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19mundo\Resultados\resultadosaula2-29-05.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}29 May 2021, 11:36:41
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

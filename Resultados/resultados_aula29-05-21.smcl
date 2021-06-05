@@ -1,0 +1,782 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\Resultados\resultados_aula29-05-21.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}29 May 2021, 10:12:10
+
+{com}. use "D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\Mestre\pnad_covid_STATA\PNAD_COVID_112020.dta", clear
+
+. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a005 escolaridade
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename c013 home_office 
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office
+
+  {txt}Na semana {c |}
+   passada, {c |}
+ o(a) Sr(a) {c |}
+  estava em {c |}
+   trabalho {c |}
+     remoto {c |}
+      (home {c |}
+  office ou {c |}
+   teletrab {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}     10,863       69.27       69.27
+{txt}          2 {c |}{res}      4,818       30.73      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     15,681      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label define home_office 1 "sim" 2 "nao"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label values home_office home_office
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office
+
+  {txt}Na semana {c |}
+   passada, {c |}
+ o(a) Sr(a) {c |}
+  estava em {c |}
+   trabalho {c |}
+     remoto {c |}
+      (home {c |}
+  office ou {c |}
+   teletrab {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        sim {c |}{res}     10,863       69.27       69.27
+{txt}        nao {c |}{res}      4,818       30.73      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     15,681      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a003 sexo
+{res}{txt}
+{com}. label define sexo 1 "homem" 2 "mulher"
+{txt}
+{com}. label values sexo sexo
+{txt}
+{com}. tab sexo
+
+    {txt}Sexo    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+      homem {c |}{res}    182,611       47.87       47.87
+{txt}     mulher {c |}{res}    198,827       52.13      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename a004 cor_raca
+{res}{txt}
+{com}. label define cor_raca 1 "branca" 2 "preta" 3 "amarela" 4 "parda" 5 "indígena" 9 "ignorado"
+{txt}
+{com}. label values cor_raca cor_raca
+{txt}
+{com}. tab cor_raca
+
+     {txt}Cor ou {c |}
+    raça    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+     branca {c |}{res}    159,256       41.75       41.75
+{txt}      preta {c |}{res}     31,404        8.23       49.98
+{txt}    amarela {c |}{res}      2,240        0.59       50.57
+{txt}      parda {c |}{res}    186,954       49.01       99.58
+{txt}   indígena {c |}{res}      1,488        0.39       99.97
+{txt}   ignorado {c |}{res}         96        0.03      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office sexo 
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}
+ office ou {c |}        Sexo   
+  teletrab {c |}     homem     mulher {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+       sim {c |}{res}     4,184      6,679 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}     3,797      1,021 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     7,981      7,700 {txt}{c |}{res}    15,681 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) if (cor_raca == 1 | cor_raca == 2 | cor_raca == 4) & (uf==43), over(home_office) over(cor_raca) over(sexo) title("Pessoas em home office, por cor/raça e sexo no RS - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab escolaridade
+
+{txt}Escolaridad {c |}
+       e    {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}     41,091       10.77       10.77
+{txt}          2 {c |}{res}    128,517       33.69       44.47
+{txt}          3 {c |}{res}     25,275        6.63       51.09
+{txt}          4 {c |}{res}     35,783        9.38       60.47
+{txt}          5 {c |}{res}     85,137       22.32       82.79
+{txt}          6 {c |}{res}     19,788        5.19       87.98
+{txt}          7 {c |}{res}     35,746        9.37       97.35
+{txt}          8 {c |}{res}     10,101        2.65      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label define escolaridade 1 "sem instrução" 2 "fund. incompl." 3 "fund. compl." 4 "médio incomp." 5 "médio compl." 6 "sup. incompl." 7 "sup. compl." 8 "pós graduação"
+{txt}
+{com}. label values escolaridade escolaridade
+{txt}
+{com}. tab escolaridade
+
+  {txt}Escolaridade {c |}      Freq.     Percent        Cum.
+{hline 15}{c +}{hline 35}
+ sem instrução {c |}{res}     41,091       10.77       10.77
+{txt}fund. incompl. {c |}{res}    128,517       33.69       44.47
+{txt}  fund. compl. {c |}{res}     25,275        6.63       51.09
+{txt} médio incomp. {c |}{res}     35,783        9.38       60.47
+{txt}  médio compl. {c |}{res}     85,137       22.32       82.79
+{txt} sup. incompl. {c |}{res}     19,788        5.19       87.98
+{txt}   sup. compl. {c |}{res}     35,746        9.37       97.35
+{txt} pós graduação {c |}{res}     10,101        2.65      100.00
+{txt}{hline 15}{c +}{hline 35}
+         Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab home_office escolaridade
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}
+ office ou {c |}                    Escolaridade   
+  teletrab {c |} sem instr  fund. inc  fund. com  médio inc  médio com {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+       sim {c |}{res}         5         76         73        139      1,155 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}       144      1,330        420        539      1,602 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       149      1,406        493        678      2,757 {txt}{c |}{res}    15,681 
+
+
+ {txt}Na semana {c |}
+  passada, {c |}
+o(a) Sr(a) {c |}
+ estava em {c |}
+  trabalho {c |}
+    remoto {c |}
+     (home {c |}
+ office ou {c |}         Escolaridade   
+  teletrab {c |} sup. inco  sup. comp  pós gradu {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+       sim {c |}{res}     1,088      5,400      2,927 {txt}{c |}{res}    10,863 
+{txt}       nao {c |}{res}       228        439        116 {txt}{c |}{res}     4,818 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}     1,316      5,839      3,043 {txt}{c |}{res}    15,681 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) [pweight = v1032] if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(home_office) over(cor_raca) over(escolaridade) title("Pessoas em home office, por cor/raça e escolaridade no Brasil - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen escolaridade_grupo = escolaridade
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. recode escolaridade_grupo(1/2=1)(3/4=2)(5/6=3)(7/8=4)
+{txt}(escolaridade_grupo: 340347 changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab escolaridade_grupo
+
+{txt}escolaridad {c |}
+    e_grupo {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}    169,608       44.47       44.47
+{txt}          2 {c |}{res}     61,058       16.01       60.47
+{txt}          3 {c |}{res}    104,925       27.51       87.98
+{txt}          4 {c |}{res}     45,847       12.02      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label define escolaridade_grupo 1 "sem instr. e fund. incompl." 2 "fund. compl. e médio incomp." 3 "médio compl. e sup. incompl." 4 "sup. compl. e pós graduação"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label values escolaridade_grupo escolaridade_grupo
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab escolaridade_grupo
+
+          {txt}escolaridade_grupo {c |}      Freq.     Percent        Cum.
+{hline 29}{c +}{hline 35}
+ sem instr. e fund. incompl. {c |}{res}    169,608       44.47       44.47
+{txt}fund. compl. e médio incomp. {c |}{res}     61,058       16.01       60.47
+{txt}médio compl. e sup. incompl. {c |}{res}    104,925       27.51       87.98
+{txt} sup. compl. e pós graduação {c |}{res}     45,847       12.02      100.00
+{txt}{hline 29}{c +}{hline 35}
+                       Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) [pweight = v1032] if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(home_office) over(cor_raca) over(escolaridade_grupo, label(labsize(vsmall))) title("Pessoas em home office, por cor/raça e escolaridade no Brasil - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) [pweight = v1032] if (cor_raca == 1 | cor_raca == 2 | cor_raca == 4) & (uf==43), over(home_office) over(cor_raca) over(escolaridade_grupo, label(labsize(vsmall))) title("Pessoas em home office, por cor/raça e escolaridade RS - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename c007 tipo_emprego 
+{res}{txt}
+{com}. label define tipo_emprego 1 "trabalhador doméstico" 2 "militar" 3 "policial ou bombeiro" 4 "empregado do setor privado" 5 "empregado do setor público" 6 "empregador" 7 "conta prória" 8 "trabalhador familiar não remunerado" 9 "produção para consumo próprio"
+{txt}
+{com}. label values tipo_emprego tipo_emprego
+{txt}
+{com}. tab tipo_emprego
+
+   {txt}No trabalho (único ou principal) {c |}
+      que tinha nessa semana, era:  {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+              trabalhador doméstico {c |}{res}      7,514        4.98        4.98
+{txt}                            militar {c |}{res}        580        0.38        5.36
+{txt}               policial ou bombeiro {c |}{res}        691        0.46        5.82
+{txt}         empregado do setor privado {c |}{res}     62,688       41.54       47.36
+{txt}         empregado do setor público {c |}{res}     21,906       14.52       61.87
+{txt}                         empregador {c |}{res}      4,398        2.91       64.79
+{txt}                       conta prória {c |}{res}     44,545       29.52       94.30
+{txt}trabalhador familiar não remunerado {c |}{res}      3,471        2.30       96.60
+{txt}      produção para consumo próprio {c |}{res}      5,126        3.40      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}    150,919      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count), over(home_office) over(tipo_emprego, label(angle(forty_five) labsize(small))) title("Pessoas em home office, por tipo de ocupação no Brasil - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename d0051 auxilio_emergencial
+{res}{txt}
+{com}. label define auxilio_emergencial 1 "sim" 2 "não" 
+{txt}
+{com}. label values auxilio_emergencial auxilio_emergencial
+{txt}
+{com}. tab auxilio_emergencial
+
+   {txt}Auxilios {c |}
+emergenciai {c |}
+          s {c |}
+relacionado {c |}
+       s ao {c |}
+coronavirus {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        sim {c |}{res}    184,767       48.44       48.44
+{txt}        não {c |}{res}    196,671       51.56      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial cor_raca
+
+  {txt}Auxilios {c |}
+emergencia {c |}
+        is {c |}
+relacionad {c |}
+     os ao {c |}
+coronaviru {c |}                     Cor ou raça   
+   s       {c |}    branca      preta    amarela      parda   indígena {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+       sim {c |}{res}    60,911     16,763        904    105,231        913 {txt}{c |}{res}   184,767 
+{txt}       não {c |}{res}    98,345     14,641      1,336     81,723        575 {txt}{c |}{res}   196,671 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}   159,256     31,404      2,240    186,954      1,488 {txt}{c |}{res}   381,438 
+
+
+  {txt}Auxilios {c |}
+emergencia {c |}
+        is {c |}
+relacionad {c |}
+     os ao {c |}   Cor ou
+coronaviru {c |}  raça   
+   s       {c |}  ignorado {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+       sim {c |}{res}        45 {txt}{c |}{res}   184,767 
+{txt}       não {c |}{res}        51 {txt}{c |}{res}   196,671 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        96 {txt}{c |}{res}   381,438 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial sexo
+
+  {txt}Auxilios {c |}
+emergencia {c |}
+        is {c |}
+relacionad {c |}
+     os ao {c |}
+coronaviru {c |}        Sexo   
+   s       {c |}     homem     mulher {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+       sim {c |}{res}    89,201     95,566 {txt}{c |}{res}   184,767 
+{txt}       não {c |}{res}    93,410    103,261 {txt}{c |}{res}   196,671 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}   182,611    198,827 {txt}{c |}{res}   381,438 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count) if cor_raca == 1 | cor_raca == 2 | cor_raca == 4, over(auxilio_emergencial) over(cor_raca, label(labsize(small))) over(sexo, label(labsize(small))) title("Pessoas que receberam auxílio emergencial, por cor/raça e sexo no Brasil - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. sum c01012
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}c01012 {c |}{res}    141,385    2216.141    2909.921          5     160000
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. sort c01012
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit c01012
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen renda = .
+{txt}(381,438 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit renda
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace renda = 1 if c01012 <= 1045
+{txt}(49,319 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit renda
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace renda = 2 if c01012 > 1045 & c01012 <= 2090
+{txt}(53,107 real changes made)
+
+{com}. replace renda = 3 if c01012 > 2090 & c01012 <= 3135
+{txt}(17,698 real changes made)
+
+{com}. replace renda = 4 if c01012 > 3135 & c01012 <= 4180
+{txt}(7,088 real changes made)
+
+{com}. replace renda = 5 if c01012 > 4180 & c01012 <= 5225
+{txt}(5,088 real changes made)
+
+{com}. replace renda = 6 if c01012 > 5225 & c01012 != .
+{txt}(9,085 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. label define renda 1 "menos de um salário mínimo" 2 "entre 1 e 2" 3 "entre 2 e 3" 4 "entre 3 e 4" 5 "entre 4 e 5" 6 "mais de 5" 
+{txt}
+{com}. label values renda renda
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab renda
+
+                     {txt}renda {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+menos de um salário mínimo {c |}{res}     49,319       34.88       34.88
+{txt}               entre 1 e 2 {c |}{res}     53,107       37.56       72.44
+{txt}               entre 2 e 3 {c |}{res}     17,698       12.52       84.96
+{txt}               entre 3 e 4 {c |}{res}      7,088        5.01       89.98
+{txt}               entre 4 e 5 {c |}{res}      5,088        3.60       93.57
+{txt}                 mais de 5 {c |}{res}      9,085        6.43      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}    141,385      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. edit renda c01012 auxilio_emergencial
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial renda
+
+  {txt}Auxilios {c |}
+emergencia {c |}
+        is {c |}
+relacionad {c |}
+     os ao {c |}
+coronaviru {c |}                         renda
+   s       {c |} menos de   entre 1 e  entre 2 e  entre 3 e  entre 4 e {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+       sim {c |}{res}    29,786     21,574      5,079      1,380        703 {txt}{c |}{res}    59,189 
+{txt}       não {c |}{res}    19,533     31,533     12,619      5,708      4,385 {txt}{c |}{res}    82,196 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}    49,319     53,107     17,698      7,088      5,088 {txt}{c |}{res}   141,385 
+
+
+  {txt}Auxilios {c |}
+emergencia {c |}
+        is {c |}
+relacionad {c |}
+     os ao {c |}
+coronaviru {c |}   renda
+   s       {c |} mais de 5 {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+       sim {c |}{res}       667 {txt}{c |}{res}    59,189 
+{txt}       não {c |}{res}     8,418 {txt}{c |}{res}    82,196 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}     9,085 {txt}{c |}{res}   141,385 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. graph bar (count), over(auxilio_emergencial) over(renda, label(angle(forty_five) labsize(small))) title("Pessoas que receberam auxílio emergencial por renda no Brasil - Nov/2020", size(medsmall))
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. reg c01012 i.escolaridade
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   141,385
+{txt}{hline 13}{c +}{hline 34}   F(7, 141377)    = {res}  4488.59
+{txt}       Model {c |} {res} 2.1769e+11         7  3.1098e+10   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 9.7950e+11   141,377  6928293.41   {txt}R-squared       ={res}    0.1818
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1818
+{txt}       Total {c |} {res} 1.1972e+12   141,384   8467641.4   {txt}Root MSE        =   {res} 2632.2
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       c01012{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      t{col 47}   P>|t|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}escolaridade {c |}
+fund. inco..  {c |}{col 15}{res}{space 2} 329.4624{col 27}{space 2} 58.46329{col 38}{space 1}    5.64{col 47}{space 3}0.000{col 55}{space 4} 214.8755{col 68}{space 3} 444.0493
+{txt}fund. compl.  {c |}{col 15}{res}{space 2} 611.6658{col 27}{space 2} 62.03356{col 38}{space 1}    9.86{col 47}{space 3}0.000{col 55}{space 4} 490.0812{col 68}{space 3} 733.2504
+{txt}médio inco..  {c |}{col 15}{res}{space 2} 451.2209{col 27}{space 2} 61.37782{col 38}{space 1}    7.35{col 47}{space 3}0.000{col 55}{space 4} 330.9215{col 68}{space 3} 571.5202
+{txt}médio compl.  {c |}{col 15}{res}{space 2} 783.1185{col 27}{space 2} 57.63409{col 38}{space 1}   13.59{col 47}{space 3}0.000{col 55}{space 4} 670.1568{col 68}{space 3} 896.0802
+{txt}sup. incom..  {c |}{col 15}{res}{space 2} 1139.674{col 27}{space 2} 61.79425{col 38}{space 1}   18.44{col 47}{space 3}0.000{col 55}{space 4} 1018.558{col 68}{space 3}  1260.79
+{txt}{space 1}sup. compl.  {c |}{col 15}{res}{space 2} 2762.718{col 27}{space 2} 58.74792{col 38}{space 1}   47.03{col 47}{space 3}0.000{col 55}{space 4} 2647.573{col 68}{space 3} 2877.863
+{txt}pós gradua..  {c |}{col 15}{res}{space 2} 4998.945{col 27}{space 2} 63.54669{col 38}{space 1}   78.67{col 47}{space 3}0.000{col 55}{space 4} 4874.394{col 68}{space 3} 5123.495
+{txt}{space 13} {c |}
+{space 8}_cons {c |}{col 15}{res}{space 2} 963.7332{col 27}{space 2} 56.31024{col 38}{space 1}   17.11{col 47}{space 3}0.000{col 55}{space 4} 853.3662{col 68}{space 3}   1074.1
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial
+
+   {txt}Auxilios {c |}
+emergenciai {c |}
+          s {c |}
+relacionado {c |}
+       s ao {c |}
+coronavirus {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        sim {c |}{res}    184,767       48.44       48.44
+{txt}        não {c |}{res}    196,671       51.56      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial, nolabel
+
+   {txt}Auxilios {c |}
+emergenciai {c |}
+          s {c |}
+relacionado {c |}
+       s ao {c |}
+coronavirus {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}    184,767       48.44       48.44
+{txt}          2 {c |}{res}    196,671       51.56      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace auxilio_emergencial = 0 if auxilio_emergencial ==2
+{txt}(196,671 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. tab auxilio_emergencial, nolabel
+
+   {txt}Auxilios {c |}
+emergenciai {c |}
+          s {c |}
+relacionado {c |}
+       s ao {c |}
+coronavirus {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}    196,671       51.56       51.56
+{txt}          1 {c |}{res}    184,767       48.44      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    381,438      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. logit auxilio_emergencial c01012 i.cor_raca i.escolaridade
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-96120.347}  
+Iteration 1:{space 3}log likelihood = {res:-86515.426}  
+Iteration 2:{space 3}log likelihood = {res:-85088.834}  
+Iteration 3:{space 3}log likelihood = {res:-85041.759}  
+Iteration 4:{space 3}log likelihood = {res:-85041.743}  
+Iteration 5:{space 3}log likelihood = {res:-85041.743}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}   141,385
+{txt}{col 49}LR chi2({res}13{txt}){col 67}= {res}  22157.21
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-85041.743{txt}{col 49}Pseudo R2{col 67}= {res}    0.1153
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}auxilio_eme~l{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}c01012 {c |}{col 15}{res}{space 2}-.0003604{col 27}{space 2} 5.65e-06{col 38}{space 1}  -63.79{col 47}{space 3}0.000{col 55}{space 4}-.0003715{col 68}{space 3}-.0003493
+{txt}{space 13} {c |}
+{space 5}cor_raca {c |}
+{space 7}preta  {c |}{col 15}{res}{space 2} .3093639{col 27}{space 2} .0208232{col 38}{space 1}   14.86{col 47}{space 3}0.000{col 55}{space 4} .2685513{col 68}{space 3} .3501766
+{txt}{space 5}amarela  {c |}{col 15}{res}{space 2} .1369947{col 27}{space 2} .0775795{col 38}{space 1}    1.77{col 47}{space 3}0.077{col 55}{space 4}-.0150583{col 68}{space 3} .2890477
+{txt}{space 7}parda  {c |}{col 15}{res}{space 2} .3895648{col 27}{space 2} .0124414{col 38}{space 1}   31.31{col 47}{space 3}0.000{col 55}{space 4} .3651801{col 68}{space 3} .4139495
+{txt}{space 4}indígena  {c |}{col 15}{res}{space 2} .5910977{col 27}{space 2}  .094924{col 38}{space 1}    6.23{col 47}{space 3}0.000{col 55}{space 4} .4050501{col 68}{space 3} .7771452
+{txt}{space 4}ignorado  {c |}{col 15}{res}{space 2}-.0007346{col 27}{space 2} .4204034{col 38}{space 1}   -0.00{col 47}{space 3}0.999{col 55}{space 4}-.8247102{col 68}{space 3}  .823241
+{txt}{space 13} {c |}
+{space 1}escolaridade {c |}
+fund. inco..  {c |}{col 15}{res}{space 2}-.0863848{col 27}{space 2} .0470529{col 38}{space 1}   -1.84{col 47}{space 3}0.066{col 55}{space 4}-.1786067{col 68}{space 3} .0058372
+{txt}fund. compl.  {c |}{col 15}{res}{space 2} -.299114{col 27}{space 2} .0497762{col 38}{space 1}   -6.01{col 47}{space 3}0.000{col 55}{space 4}-.3966736{col 68}{space 3}-.2015544
+{txt}médio inco..  {c |}{col 15}{res}{space 2} -.207858{col 27}{space 2} .0492436{col 38}{space 1}   -4.22{col 47}{space 3}0.000{col 55}{space 4}-.3043737{col 68}{space 3}-.1113424
+{txt}médio compl.  {c |}{col 15}{res}{space 2}-.5300467{col 27}{space 2} .0464961{col 38}{space 1}  -11.40{col 47}{space 3}0.000{col 55}{space 4}-.6211774{col 68}{space 3} -.438916
+{txt}sup. incom..  {c |}{col 15}{res}{space 2}-.8361154{col 27}{space 2} .0501327{col 38}{space 1}  -16.68{col 47}{space 3}0.000{col 55}{space 4}-.9343737{col 68}{space 3}-.7378571
+{txt}{space 1}sup. compl.  {c |}{col 15}{res}{space 2}-1.208875{col 27}{space 2}  .048938{col 38}{space 1}  -24.70{col 47}{space 3}0.000{col 55}{space 4}-1.304792{col 68}{space 3}-1.112958
+{txt}pós gradua..  {c |}{col 15}{res}{space 2}-1.589248{col 27}{space 2} .0603076{col 38}{space 1}  -26.35{col 47}{space 3}0.000{col 55}{space 4}-1.707449{col 68}{space 3}-1.471047
+{txt}{space 13} {c |}
+{space 8}_cons {c |}{col 15}{res}{space 2}  .663725{col 27}{space 2} .0466911{col 38}{space 1}   14.22{col 47}{space 3}0.000{col 55}{space 4} .5722121{col 68}{space 3} .7552378
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: 34 failures and 0 successes completely determined.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. logit, or
+
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}   141,385
+{txt}{col 49}LR chi2({res}13{txt}){col 67}= {res}  22157.21
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-85041.743{txt}{col 49}Pseudo R2{col 67}= {res}    0.1153
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}auxilio_eme~l{col 15}{c |} Odds Ratio{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}c01012 {c |}{col 15}{res}{space 2} .9996397{col 27}{space 2} 5.65e-06{col 38}{space 1}  -63.79{col 47}{space 3}0.000{col 55}{space 4} .9996286{col 68}{space 3} .9996507
+{txt}{space 13} {c |}
+{space 5}cor_raca {c |}
+{space 7}preta  {c |}{col 15}{res}{space 2} 1.362558{col 27}{space 2} .0283728{col 38}{space 1}   14.86{col 47}{space 3}0.000{col 55}{space 4} 1.308068{col 68}{space 3} 1.419318
+{txt}{space 5}amarela  {c |}{col 15}{res}{space 2} 1.146822{col 27}{space 2} .0889698{col 38}{space 1}    1.77{col 47}{space 3}0.077{col 55}{space 4} .9850545{col 68}{space 3} 1.335155
+{txt}{space 7}parda  {c |}{col 15}{res}{space 2} 1.476338{col 27}{space 2} .0183677{col 38}{space 1}   31.31{col 47}{space 3}0.000{col 55}{space 4} 1.440774{col 68}{space 3} 1.512781
+{txt}{space 4}indígena  {c |}{col 15}{res}{space 2}  1.80597{col 27}{space 2} .1714298{col 38}{space 1}    6.23{col 47}{space 3}0.000{col 55}{space 4} 1.499378{col 68}{space 3} 2.175254
+{txt}{space 4}ignorado  {c |}{col 15}{res}{space 2} .9992657{col 27}{space 2} .4200947{col 38}{space 1}   -0.00{col 47}{space 3}0.999{col 55}{space 4}  .438362{col 68}{space 3}  2.27787
+{txt}{space 13} {c |}
+{space 1}escolaridade {c |}
+fund. inco..  {c |}{col 15}{res}{space 2} .9172412{col 27}{space 2} .0431589{col 38}{space 1}   -1.84{col 47}{space 3}0.066{col 55}{space 4} .8364348{col 68}{space 3} 1.005854
+{txt}fund. compl.  {c |}{col 15}{res}{space 2} .7414749{col 27}{space 2} .0369078{col 38}{space 1}   -6.01{col 47}{space 3}0.000{col 55}{space 4} .6725535{col 68}{space 3} .8174591
+{txt}médio inco..  {c |}{col 15}{res}{space 2} .8123223{col 27}{space 2} .0400017{col 38}{space 1}   -4.22{col 47}{space 3}0.000{col 55}{space 4} .7375852{col 68}{space 3} .8946324
+{txt}médio compl.  {c |}{col 15}{res}{space 2} .5885775{col 27}{space 2} .0273666{col 38}{space 1}  -11.40{col 47}{space 3}0.000{col 55}{space 4} .5373114{col 68}{space 3}  .644735
+{txt}sup. incom..  {c |}{col 15}{res}{space 2} .4333908{col 27}{space 2} .0217271{col 38}{space 1}  -16.68{col 47}{space 3}0.000{col 55}{space 4} .3928318{col 68}{space 3} .4781374
+{txt}{space 1}sup. compl.  {c |}{col 15}{res}{space 2} .2985329{col 27}{space 2} .0146096{col 38}{space 1}  -24.70{col 47}{space 3}0.000{col 55}{space 4}  .271229{col 68}{space 3} .3285855
+{txt}pós gradua..  {c |}{col 15}{res}{space 2} .2040791{col 27}{space 2} .0123075{col 38}{space 1}  -26.35{col 47}{space 3}0.000{col 55}{space 4} .1813278{col 68}{space 3} .2296849
+{txt}{space 13} {c |}
+{space 8}_cons {c |}{col 15}{res}{space 2} 1.942013{col 27}{space 2} .0906746{col 38}{space 1}   14.22{col 47}{space 3}0.000{col 55}{space 4} 1.772183{col 68}{space 3} 2.128117
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: 34 failures and 0 successes completely determined.{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\raque\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}D:\Mega20-21\Econobytes\Curso Stata\Covid_19Brasil\Resultados\resultados_aula29-05-21.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}29 May 2021, 11:03:30
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
